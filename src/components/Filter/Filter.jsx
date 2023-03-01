@@ -5,7 +5,7 @@ class Filter extends Component {
     return (
       <div>
         <strong>Find contacts by name</strong>
-        <input type="text" name="filter" />
+        <input id="filter" type="text" name="filter" />
       </div>
     );
   }

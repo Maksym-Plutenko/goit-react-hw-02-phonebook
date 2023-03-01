@@ -14,8 +14,8 @@ class App extends Component {
     ],
     filter: '',
 
-    name: '',
-    number: ''
+    // name: '',
+    // number: ''
   }
 
   render() {
