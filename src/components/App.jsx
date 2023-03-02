@@ -14,20 +14,28 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-
-    // name: '',
-    // number: ''
   };
 
   addContact = contact => {
-    // console.log(contact);
     contact.id = nanoid();
-    // console.log(contact);
     const newContacts = [...this.state.contacts, contact];
-    // console.log(newContacts);
     this.setState({
       contacts: newContacts,
     });
+  };
+
+  setFilter = newFilter => {
+    this.setState({
+      filter: newFilter,
+    });
+  };
+
+  formContactList = filter => {
+    const contacts = this.state.contacts;
+    const newContactList = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+    return newContactList;
   };
 
   render() {
@@ -46,8 +54,8 @@ class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm submitAction={this.addContact} />
         <h2>Contacts</h2>
-        <Filter />
-        <ContactList contacts={this.state.contacts} />
+        <Filter changeAction={this.setFilter} />
+        <ContactList contacts={this.formContactList(this.state.filter)} />
       </div>
     );
   }
