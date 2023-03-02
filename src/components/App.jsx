@@ -17,6 +17,12 @@ class App extends Component {
   };
 
   addContact = contact => {
+    const nameList = this.state.contacts.map(cont => cont.name);
+    if (nameList.includes(contact.name)) {
+      alert(`${contact.name} is already in contacts.`);
+      return;
+    }
+
     contact.id = nanoid();
     const newContacts = [...this.state.contacts, contact];
     this.setState({
@@ -42,7 +48,6 @@ class App extends Component {
     return (
       <div
         style={{
-          height: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
