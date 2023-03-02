@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
@@ -18,11 +19,16 @@ class App extends Component {
     // number: ''
   };
 
-  addContact(contact) {
-    this.setState(prevState => {
-      prevState.contacts.push(contact);
+  addContact = contact => {
+    // console.log(contact);
+    contact.id = nanoid();
+    // console.log(contact);
+    const newContacts = [...this.state.contacts, contact];
+    // console.log(newContacts);
+    this.setState({
+      contacts: newContacts,
     });
-  }
+  };
 
   render() {
     return (
@@ -38,10 +44,10 @@ class App extends Component {
         }}
       >
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm submitAction={this.addContact} />
         <h2>Contacts</h2>
         <Filter />
-        <ContactList contacts={this.state.contacts}/>
+        <ContactList contacts={this.state.contacts} />
       </div>
     );
   }

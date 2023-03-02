@@ -7,14 +7,16 @@ class ContactForm extends Component {
   };
 
   changeHandler = event => {
-    // console.log(event.currentTarget);
-    // console.log(event.currentTarget.name);
     this.setState({ [event.currentTarget.name]: event.currentTarget.value });
   };
 
   submitHandler = event => {
     event.preventDefault();
-    console.log(event.target);
+    this.props.submitAction(this.state);
+    this.setState({
+      name: '',
+      number: '',
+    })
   };
 
   render() {

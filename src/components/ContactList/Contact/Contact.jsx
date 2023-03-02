@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 const Contact = ({name, number, id}) => (
   <>
-    <p>{name}: {number}</p>
+    <span>{name}: {number}</span>
     <button type="button" id={id}>Delete</button>
   </>
 );
