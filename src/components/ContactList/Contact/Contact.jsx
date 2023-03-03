@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
+
+import css from './Contact.module.css';
 
 class Contact extends Component {
   clickHandler = event => {
-    // console.log(event.currentTarget.id);
     this.props.onDelete(event.currentTarget.id);
-  }
-
+  };
 
   render() {
-    const { name, number, id} = this.props;
+    const { name, number, id } = this.props;
     return (
       <>
-        <span>
+        <p>
           {name}: {number}
-        </span>
-        <button type="button" id={id} onClick={this.clickHandler}>
+        </p>
+        <button type="button" id={id} onClick={this.clickHandler} className={css.button}>
           Delete
         </button>
       </>
     );
   }
 }
-
-// const Contact = ({name, number, id, onDelete}) => (
-//   <>
-//     <span>{name}: {number}</span>
-//     <button type="button" id={id} onClick={this.props.onDelete} >Delete</button>
-//   </>
-// );
 
 Contact.propTypes = {
   name: PropTypes.string,

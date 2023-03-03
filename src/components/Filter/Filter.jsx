@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
+
+import css from './Filter.module.css';
 
 class Filter extends Component {
   state = {
@@ -14,7 +17,7 @@ class Filter extends Component {
 
   render() {
     return (
-      <div>
+      <div className={css.container}>
         <strong>Find contacts by name</strong>
         <input
           id="filter"
@@ -22,6 +25,7 @@ class Filter extends Component {
           name="filter"
           value={this.state.name}
           onChange={this.changeHandler}
+          className={css.input}
         />
       </div>
     );

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 
 import { Contact } from './Contact/Contact';
+
+import css from './ContactList.module.css';
 
 class ContactList extends Component {
   render() {
@@ -9,7 +12,7 @@ class ContactList extends Component {
     return (
       <ul>
         {contacts.map(elem => (
-          <li key={elem.id}>
+          <li key={elem.id} className={css.element}>
             <Contact name={elem.name} number={elem.number} id={elem.id} onDelete={this.props.onDelete} />
           </li>
         ))}
