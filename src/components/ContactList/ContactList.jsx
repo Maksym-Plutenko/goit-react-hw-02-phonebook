@@ -10,7 +10,7 @@ class ContactList extends Component {
       <ul>
         {contacts.map(elem => (
           <li key={elem.id}>
-            <Contact name={elem.name} number={elem.number} id={elem.id} />
+            <Contact name={elem.name} number={elem.number} id={elem.id} onDelete={this.props.onDelete} />
           </li>
         ))}
       </ul>
