@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './ContactForm.module.css';
 
@@ -19,7 +19,7 @@ class ContactForm extends Component {
     this.setState({
       name: '',
       number: '',
-    })
+    });
   };
 
   render() {
@@ -37,7 +37,7 @@ class ContactForm extends Component {
             onChange={this.changeHandler}
             className={css.input}
           />
-        </label >
+        </label>
         <label className={css.element}>
           Number
           <input
@@ -51,10 +51,16 @@ class ContactForm extends Component {
             className={css.input}
           />
         </label>
-        <button type="submit" className={css.button}>Add contact</button>
+        <button type="submit" className={css.button}>
+          Add contact
+        </button>
       </form>
     );
   }
 }
+
+ContactForm.propTypes = {
+  submitAction: PropTypes.func.isRequired,
+};
 
 export { ContactForm };

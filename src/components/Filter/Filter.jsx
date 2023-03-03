@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import css from './Filter.module.css';
 
@@ -31,5 +31,9 @@ class Filter extends Component {
     );
   }
 }
+
+Filter.propTypes = {
+  changeAction: PropTypes.func,
+};
 
 export { Filter };

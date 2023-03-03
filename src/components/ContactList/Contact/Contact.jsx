@@ -15,7 +15,12 @@ class Contact extends Component {
         <p>
           {name}: {number}
         </p>
-        <button type="button" id={id} onClick={this.clickHandler} className={css.button}>
+        <button
+          type="button"
+          id={id}
+          onClick={this.clickHandler}
+          className={css.button}
+        >
           Delete
         </button>
       </>
@@ -24,10 +29,10 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
-  id: PropTypes.string,
-  onDelete: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export { Contact };
